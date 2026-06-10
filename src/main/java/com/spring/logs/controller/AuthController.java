@@ -1,6 +1,7 @@
 package com.spring.logs.controller;
 
 import com.spring.logs.dto.AuthResponse;
+import com.spring.logs.dto.CreateAdminRequest;
 import com.spring.logs.dto.LoginRequest;
 import com.spring.logs.dto.RegisterRequest;
 import com.spring.logs.service.AuthService;
@@ -22,6 +23,15 @@ public class AuthController {
     ) {
         return ResponseEntity.ok(
                 authService.register(request)
+        );
+    }
+
+    @PostMapping("/create-admin")
+    public ResponseEntity<String> createAdmin(
+            @RequestBody CreateAdminRequest request
+    ) {
+        return ResponseEntity.ok(
+                authService.createAdmin(request)
         );
     }
 
